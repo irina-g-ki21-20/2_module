@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 38.1</title>
+</head>
+<body>
+    <script>
+        function sum(value, type = 'odd') {
+            let sum = 0;
+
+            if (typeof value !== 'number') {
+                return NaN;
+            }
+            if (type === 'odd') {
+                for (let i = 1; i <= value; i += 2) {
+                    sum += i;
+                }
+            } 
+            else if (type === 'even') {
+                for (let i = 2; i <= value; i += 2) {
+                    sum += i;
+                }
+            }
+
+            return sum;
+        }
+
+        const result = sum(6)
+        //const result = sum(6, 'even')
+
+        console.log(result) 
+    </script>
+</body>
+</html>
