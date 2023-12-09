@@ -25,22 +25,22 @@
             },
         ];
 
-        const objectItem = '';
+        const objectItem = listUsers[0];
 
         function changeObjectMutate(object) {
-
+            object.firstName = 'Эдуард';
+            return object;
         }
 
         function changeObjectImmutable(object) {
-
+            return { ...object, firstName: 'Эдуард' };           //shallow copy
         }
 
-        console.log(changeObjectMutate(objectItem))
-        // console.log(changeObjectImmutable(objectItem))
+        console.log(changeObjectMutate(objectItem));
+        //console.log(changeObjectImmutable(objectItem));
 
-        console.log(objectItem)
-        console.log(listUsers)
-
+        console.log(objectItem); 
+        console.log(listUsers);  
     </script>
 </body>
 </html>

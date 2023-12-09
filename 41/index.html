@@ -6,7 +6,7 @@
     <title>Задание 41</title>
 </head>
 <body>
-    <script>
+    <!-- <script>
         const person = {
             firstName: 'Alex',
             age: 20,
@@ -28,6 +28,39 @@
 
         obj.hello();
         obj.info();
+    </script> -->
+    <script>
+        const person = {
+            firstName: 'Alex',
+            age: 20,
+            isAdult: true,
+
+            hello: function() {
+                console.log(`Hi ${this.firstName}`);
+            },
+
+            info: function() {
+                const split = () => {
+                    return `
+                        Name: ${this.firstName}
+                        Age: ${this.age}
+                        isAdult: ${this.isAdult ? 'Y' : 'N'}
+                    `;
+                };
+                console.log(split());
+            },
+        }
+
+        person.hello();
+        person.info();
     </script>
 </body>
 </html>
+
+
+Стрелочные функции имеют особенность в том, что они не создают свой собственный 
+контекст this — они наследуют его от окружающего контекста, где они были созданы (лексическое окружение).
+Из-за использования стрелочных функций, this внутри них указывает на контекст, в котором они были созданы, а не на объект person. 
+В глобальном контексте (в вашем случае, внутри скрипта в HTML-документе), 
+this указывает на глобальный объект (window в браузере), и у глобального объекта нет свойства firstName.
+split использует this, чтобы обратиться к свойствам объекта person
